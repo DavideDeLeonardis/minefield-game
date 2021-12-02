@@ -29,6 +29,28 @@ buttonPlay.addEventListener('click',
     },
 );
 
+// function generateNumbersRand(lengthArray, min, max) {
+
+//     for (let index = 0; index < lengthArray; index++) {
+//         let numberRand = getRandomNumber(min, max);
+//         while (bombs.includes(numberRand)) {
+//             numberRand = getRandomNumber(min, max);
+//         }
+//         index++;
+//         bombs.push(numberRand);
+//         console.log(bombs);
+//     };
+//     return bombs;
+// };
+let bombs = [];
+for (let index = 0; index < 16; index++) {
+    let numberRand = getRandomNumber(1, 100);
+    bombs.push(numberRand);
+}
+console.log(bombs);
+
+
+
 
 
 /*
@@ -53,6 +75,11 @@ function addElementsDom(col, row) {
             }
         );
     };
+
     return numberSquare;
+};
+
+function getRandomNumber(min, max) {
+    return random = Math.floor(Math.random() * (max - min)) + min;
 };
 
