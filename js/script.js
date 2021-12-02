@@ -51,7 +51,13 @@ function addElementsDom(col, row, min, max) {
                 element.classList.add('square-clicked');
                 if (array.includes(index)) {
                     element.classList.add('square-clicked-wrong');
-                    console.log(`HAI PERSO! Il tuo punteggio è ...`);
+                    setTimeout( () => {
+                        const popUp = document.querySelector('.pop-up');
+                        popUp.classList.add('pop-up-clicked');
+                    }, 250);
+                    console.log('Hai perso!');
+                    let punteggioDom = document.querySelector('p.punteggio');
+                    punteggioDom.append(` punti.`); //manca punteggio effettivo
                 } else {
                     element.classList.add('square-clicked-right');
                 };

@@ -59,6 +59,7 @@ button:hover {
 main {
     background-color: rgb(127, 255, 212);
     padding: 60px 0;
+    position: relative;
 }
 .playfield {
     flex-wrap: wrap;
@@ -73,6 +74,7 @@ main {
     justify-content: center;
     cursor: pointer;
     border: 2px solid rgb(0, 0, 0);
+    transition: 250ms;
 }
 .square-clicked {
     color: rgb(255, 255, 255);
@@ -82,6 +84,28 @@ main {
 }
 .square-clicked-wrong {
     background-color: rgb(255, 0, 0);
+}
+.pop-up {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    width: 400px;
+    height: 150px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    padding-top: 20px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    z-index: 999;
+}
+.pop-up-clicked {
+    display: block;
+}
+.pop-up p {
+    font-size: 1.1em;
+    margin-top: 10px;
 }
 
 /* footer */
