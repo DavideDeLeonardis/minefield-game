@@ -15,66 +15,134 @@ const grid = document.getElementById('grid');
 
 buttonPlay.addEventListener('click',
     function () {
-        switch (difficulty.value) {
-            case 'easy':
-                addElementsDom(10, 10);
-                // generateArray(1, 100);
-                console.log(generateArray(1, 100));
+        if (difficulty.value == 'easy') {
+            let row = 10;
+            let col = 10;
+            let numberSquare = row * col;
+            grid.innerHTML = '';
 
-                break;
-            case 'medium':
-                addElementsDom(9, 9);
-                // generateArray(1, 81);
-                console.log(generateArray(1, 81));
+            let bombs = [];
+            for (let index = 1; index <= 16; index++) {
+                let numberRand = getRandomNumber(1, 100);
+                while (bombs.includes(numberRand)) { 
+                    numberRand = getRandomNumber(1, 100);
+                }
+                bombs.push(numberRand);
+            };
 
-                break;
-            case 'hard':
-                addElementsDom(7, 7);
-                // generateArray(1, 49);
-                console.log(generateArray(1, 49));
+            let array = generateArray(1, 100);
+            console.log(array);
+            
+            for (let index = 1; index <= numberSquare; index++) {
+                let square = document.createElement('div');
+                square.classList.add('square');
+                square.style.width = `calc(100% / ${col})`;
+                square.style.height = `calc(100% / ${row})`;
+                square.append(index);
+                grid.append(square);
 
-                break;
-        }
-    },
+                square.addEventListener('click',
+                    function () {
+                        const element = this;
+                        if (array.includes(index)) {
+                            element.style.backgroundColor = 'red';
+                            element.style.color = 'white';
+                            console.log(`HAI PERSO! Il tuo punteggio è ...`);
+                        } else {
+                            element.classList.add('square-clicked');
+                        }
+                    }
+                );
+            };
+        } 
+        else if (difficulty.value == 'medium') {
+            let row = 9;
+            let col = 9;
+            let numberSquare = row * col;
+            grid.innerHTML = '';
+
+            let bombs = [];
+            for (let index = 1; index <= 16; index++) {
+                let numberRand = getRandomNumber(1, 81);
+                while (bombs.includes(numberRand)) { 
+                    numberRand = getRandomNumber(1, 81);
+                }
+                bombs.push(numberRand);
+            };
+
+            let array = generateArray(1, 81);
+            console.log(array);
+            
+            for (let index = 1; index <= numberSquare; index++) {
+                let square = document.createElement('div');
+                square.classList.add('square');
+                square.style.width = `calc(100% / ${col})`;
+                square.style.height = `calc(100% / ${row})`;
+                square.append(index);
+                grid.append(square);
+
+                square.addEventListener('click',
+                    function () {
+                        const element = this;
+                        if (array.includes(index)) {
+                            element.style.backgroundColor = 'red';
+                            element.style.color = 'white';
+                            console.log(`HAI PERSO! Il tuo punteggio è ...`);
+                        } else {
+                            element.classList.add('square-clicked');
+                        }
+                    }
+                );
+            };
+        } else if (difficulty.value == 'hard') { 
+            let row = 7;
+            let col = 7;
+            let numberSquare = row * col;
+            grid.innerHTML = '';
+
+            let bombs = [];
+            for (let index = 1; index <= 16; index++) {
+                let numberRand = getRandomNumber(1, 49);
+                while (bombs.includes(numberRand)) { 
+                    numberRand = getRandomNumber(1, 49);
+                }
+                bombs.push(numberRand);
+            };
+
+            let array = generateArray(1, 49);
+            console.log(array);
+            
+            for (let index = 1; index <= numberSquare; index++) {
+                let square = document.createElement('div');
+                square.classList.add('square');
+                square.style.width = `calc(100% / ${col})`;
+                square.style.height = `calc(100% / ${row})`;
+                square.append(index);
+                grid.append(square);
+
+                square.addEventListener('click',
+                    function () {
+                        const element = this;
+                        if (array.includes(index)) {
+                            element.style.backgroundColor = 'red';
+                            element.style.color = 'white';
+                            console.log(`HAI PERSO! Il tuo punteggio è ...`);
+                        } else {
+                            element.classList.add('square-clicked');
+                        }
+                    }
+                );
+            };
+        };
+    }
 );
 
 
-
-
-
-
 /*
+ *
  * FUNCTIONS
  *
  */
-function addElementsDom(col, row) {
-    let numberSquare = col * row;
-    grid.innerHTML = '';
-    for (let index = 1; index <= numberSquare; index++) {
-        let square = document.createElement('div');
-        square.classList.add('square');
-        square.style.width = `calc(100% / ${col})`;
-        square.style.height = `calc(100% / ${row})`;
-        square.append(index);
-        grid.append(square);
-
-        let array = generateArray(1, 100);
-        square.addEventListener('click',
-            function () {
-                const element = this;
-                if (array.includes(parseInt(index))) {
-                    this.style.backgroundColor = 'red';
-                    this.style.color = 'white';
-                } else {
-                    this.classList.add('square-clicked');
-                }
-            }
-        );
-    };
-
-    return numberSquare;
-};
-
 function getRandomNumber(min, max) {
     return random = Math.floor(Math.random() * (max - min)) + min;
 };
@@ -88,6 +156,65 @@ function generateArray(min, max) {
         }
         bombs.push(numberRand);
     }
+
     return bombs;
 };
 
+
+// buttonPlay.addEventListener('click',
+//     function () {
+//         switch (difficulty.value) {
+//             case 'easy':
+//                 addElementsDom(10, 10);
+//                 let array = generateArray(1, 100);
+//                 console.log(array);
+
+//                 // generateArray(1, 100);
+//                 // console.log(generateArray(1, 100));
+
+//                 break;
+//             case 'medium':
+//                 addElementsDom(9, 9);
+//                 // generateArray(1, 81);
+//                 // console.log(generateArray(1, 81));
+
+//                 break;
+//             case 'hard':
+//                 addElementsDom(7, 7);
+//                 // generateArray(1, 49);
+//                 // console.log(generateArray(1, 49));
+
+//                 break;
+//         }
+//     },
+// );
+
+
+// function addElementsDom(col, row) {
+//     let numberSquare = col * row;
+//     grid.innerHTML = '';
+//     for (let index = 1; index <= numberSquare; index++) {
+//         let square = document.createElement('div');
+//         square.classList.add('square');
+//         square.style.width = `calc(100% / ${col})`;
+//         square.style.height = `calc(100% / ${row})`;
+//         square.append(index);
+//         grid.append(square);
+
+//         square.addEventListener('click',
+//             function () {
+//                 const element = this;
+//                 let array = generateArray(1, 100);
+
+//                 if (array.includes(index)) {
+//                     element.style.backgroundColor = 'red';
+//                     element.style.color = 'white';
+//                 } else {
+//                     element.classList.add('square-clicked');
+//                 }
+//             }
+//         );
+//     };
+
+//     return numberSquare;
+// };
