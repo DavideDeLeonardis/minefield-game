@@ -75,8 +75,13 @@ main {
     border: 2px solid rgb(0, 0, 0);
 }
 .square-clicked {
-    color: rgb(218, 218, 218);
+    color: rgb(255, 255, 255);
+}
+.square-clicked-right {
     background-color: rgb(100, 150, 236);
+}
+.square-clicked-wrong {
+    background-color: rgb(255, 0, 0);
 }
 
 /* footer */
