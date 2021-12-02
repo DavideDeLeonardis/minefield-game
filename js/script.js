@@ -38,11 +38,6 @@ buttonPlay.addEventListener('click',
     },
 );
 
-if (bombs.includes()) {
-    
-}
-
-
 
 
 
@@ -63,10 +58,16 @@ function addElementsDom(col, row) {
         square.append(index);
         grid.append(square);
 
+        let array = generateArray(1, 100);
         square.addEventListener('click',
             function () {
                 const element = this;
-                element.classList.add('square-clicked');
+                if (array.includes(parseInt(index))) {
+                    this.style.backgroundColor = 'red';
+                    this.style.color = 'white';
+                } else {
+                    this.classList.add('square-clicked');
+                }
             }
         );
     };
