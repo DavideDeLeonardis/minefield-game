@@ -18,36 +18,31 @@ buttonPlay.addEventListener('click',
         switch (difficulty.value) {
             case 'easy':
                 addElementsDom(10, 10);
+                // generateArray(1, 100);
+                console.log(generateArray(1, 100));
+
                 break;
             case 'medium':
                 addElementsDom(9, 9);
+                // generateArray(1, 81);
+                console.log(generateArray(1, 81));
+
                 break;
             case 'hard':
                 addElementsDom(7, 7);
+                // generateArray(1, 49);
+                console.log(generateArray(1, 49));
+
                 break;
         }
     },
 );
 
-// function generateNumbersRand(lengthArray, min, max) {
-
-//     for (let index = 0; index < lengthArray; index++) {
-//         let numberRand = getRandomNumber(min, max);
-//         while (bombs.includes(numberRand)) {
-//             numberRand = getRandomNumber(min, max);
-//         }
-//         index++;
-//         bombs.push(numberRand);
-//         console.log(bombs);
-//     };
-//     return bombs;
-// };
-let bombs = [];
-for (let index = 0; index < 16; index++) {
-    let numberRand = getRandomNumber(1, 100);
-    bombs.push(numberRand);
+if (bombs.includes()) {
+    
 }
-console.log(bombs);
+
+
 
 
 
@@ -81,5 +76,17 @@ function addElementsDom(col, row) {
 
 function getRandomNumber(min, max) {
     return random = Math.floor(Math.random() * (max - min)) + min;
+};
+
+function generateArray(min, max) {
+    let bombs = [];
+    for (let index = 1; index <= 16; index++) {
+        let numberRand = getRandomNumber(min, max);
+        while (bombs.includes(numberRand)) { 
+            numberRand = getRandomNumber(min, max);
+        }
+        bombs.push(numberRand);
+    }
+    return bombs;
 };
 
