@@ -10,7 +10,7 @@ let counter = 0;
  * @param   max  max grid's number
  * @returns      random numbers
  */
- function getRandomNumber(max) {
+function getRandomNumber(max) {
     return random = Math.floor(Math.random() * (max - 1)) + 1;
 }
 
@@ -21,7 +21,7 @@ let counter = 0;
  * @param   bombs  bombs' number
  * @returns        bombs' array
  */
- function generateArray(max, bombs) {
+function generateArray(max, bombs) {
     let arrayBombs = [];
     for (let index = 1; index <= bombs; index++) {
         let numberRand = getRandomNumber(max);
@@ -38,46 +38,43 @@ let counter = 0;
 /**
  * 
  * @param   col    columns and rows' number
- * @param   max    max grid's number
  * @param   bombs  bombs' number
  * @returns        total number of squares
  */
-function addElementsDom(col, max, bombs) {
+function addElementsDom(col, bombs) {
     let numberSquare = Math.pow(col, 2);
     grid.innerHTML = '';
     score.innerHTML = 0;
     counter = 0;
 
-    let array = generateArray(max, bombs);
+    let array = generateArray(numberSquare, bombs);
 
     for (let index = 1; index <= numberSquare; index++) {
         let square = document.createElement('div');
         square.classList.add('square');
         square.style.width = `calc(100% / ${col})`;
-        square.style.height = `calc(100% / ${col})`;
+        square.style.height = square.style.width;
         square.append(index);
         grid.append(square);
 
-        square.addEventListener('click',
-            function () {
-                if (array.includes(index)) {
-                    if (checkable) {
-                        this.classList.add('square-clicked-wrong');
-                    }
-                    checkable = false;
-
-                    setTimeout( () => {
-                        document.querySelector('.pop-up').classList.add('pop-up-clicked');
-                    }, 150);
-                } else {
-                    if (checkable) {
-                        this.classList.add('square-clicked-right');
-                        counter += 1;
-                    }
-                    score.innerHTML = counter;
+        square.addEventListener('click', function () {
+            if (array.includes(index)) {
+                if (checkable) {
+                    this.classList.add('square-clicked-wrong');
                 }
+                checkable = false;
+                
+                setTimeout( () => {
+                    document.querySelector('.pop-up').classList.add('pop-up-clicked');
+                }, 150);
+            } else {
+                if (checkable) {
+                    this.classList.add('square-clicked-right');
+                    counter += 1;
+                }
+                score.innerHTML = counter;
             }
-        );
+        });
     }
 
     return numberSquare;
@@ -88,13 +85,13 @@ buttonPlay.addEventListener('click',
     function () {
         switch (difficulty.value) {
             case 'easy':
-                addElementsDom(10, 100, 5);
+                addElementsDom(10, 5);
                 break;
             case 'medium':
-                addElementsDom(9, 81, 10);
+                addElementsDom(8, 10);
                 break;
             case 'hard':
-                addElementsDom(6, 36, 15);
+                addElementsDom(6, 15);
                 break;
         }
     }
