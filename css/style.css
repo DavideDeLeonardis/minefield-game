@@ -10,6 +10,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 .d-flex {
     display: flex;
 }
@@ -21,35 +22,43 @@ header {
     background-color: rgb(255, 255, 255);
     padding: 10px 20px;
 }
+
 .header-left {
     align-items: center;
 }
+
 .header-left img {
     width: 50px;
     margin-right: 20px;
 }
+
 select {
     width: 100px;
     margin: 0 10px;
 }
+
 button {
     width: 70px;
     background-color: rgb(239, 239, 239);
     border: 1px solid gray;
     border-radius: 2px;
 }
+
 button:hover {
     background-color: rgb(220, 220, 220);   
 }
+
 @media screen and (max-width: 680px) {
     header {
         flex-wrap: wrap;
     }
+
     .header-left,
     .header-right {
         justify-content: center;
         width: 100%;
     }
+
     .header-right {
         margin-top: 1em;
     }
@@ -58,9 +67,15 @@ button:hover {
 /* main */
 main {
     background-color: rgb(127, 255, 212);
-    padding: 60px 0;
     position: relative;
 }
+
+.text {
+    font-size: 1.2em;
+    text-align: center;
+    padding: 30px;
+}
+
 .playfield {
     flex-wrap: wrap;
     width: 500px;
@@ -68,6 +83,7 @@ main {
     margin: auto;
     border: 2px solid rgb(0, 0, 0);
 }
+
 .square {
     display: flex;
     align-items: center;
@@ -76,15 +92,17 @@ main {
     border: 2px solid rgb(0, 0, 0);
     transition: 250ms;
 }
-.square-clicked {
-    color: rgb(255, 255, 255);
-}
+
 .square-clicked-right {
+    color: rgb(255, 255, 255);
     background-color: rgb(100, 150, 236);
 }
+
 .square-clicked-wrong {
+    color: rgb(255, 255, 255);
     background-color: rgb(255, 0, 0);
 }
+
 .pop-up {
     position: absolute;
     left: 50%;
@@ -92,26 +110,29 @@ main {
     transform: translate(-50%, -50%);
     display: none;
     width: 400px;
-    height: 150px;
     text-align: center;
     background-color: rgb(255, 255, 255);
-    padding-top: 20px;
+    padding: 20px;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 5px;
     z-index: 999;
 }
+
 .pop-up-clicked {
     display: block;
 }
+
 .pop-up p {
     font-size: 1.1em;
     margin-top: 10px;
 }
 
-/* footer */
-footer {
-    width: 100%;
-    line-height: 50px;
-    background-color: rgb(255, 255, 255);
-    padding-left: 1em;
+.score-container {
+    font-size: 1.2em;
+    text-align: center;
+    padding: 30px;
+}
+
+#score {
+    font-size: 1.3em;
 }

@@ -6,40 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Campo minato DOM</title>
+    <script src="js/script.js" defer></script>
+    <title>Minefield Game</title>
 </head>
 
 <body>
     <header class="d-flex">
         <div class="header-left d-flex">
             <img src="img/unknown.png" alt="logo boolean">
-            <h2>Campo minato: la Griglia</h2>
+            <h2>Minefield</h2>
         </div>
         <div class="header-right d-flex">
-            <label for="difficulty">Difficoltà:</label>
+            <label for="difficulty">Difficulty:</label>
             <select name="difficulty" id="difficulty">
                 <option value="easy">Easy</option>
                 <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
+                <option value="hard">Impossible</option>
             </select>
             <button id="btn">Play</button>
         </div>
     </header>
 
     <main>
+        <p class="text">
+            Select the difficulty, start the game and hit the numbers.<br>
+            Be careful, if you hit a bomb you lose!
+        </p>
         <div class="playfield d-flex" id="grid"></div>
+        <div class="score-container">Your score is: <span id="score">0</span> points</div>
         <div class="pop-up">
-            <h2>Hai perso! &#128546;</h2>
-            <p class="punteggio">Il tuo punteggio è: </p>
-            <p>Ricarica la pagina e fai un altro tentativo!</p>
+            <h2>YOU LOSE! &#128546;</h2>
+            <p>Refresh the page and try again!</p>
         </div>
     </main>
-
-    <footer>
-        <span>Made with &#9829; by <a href="#">Boolean</a></span>
-    </footer>
-
-    <script src="js/script.js"></script>
 </body>
 
 </html>
